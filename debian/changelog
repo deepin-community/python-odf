@@ -1,0 +1,211 @@
+python-odf (1.4.1-1) unstable; urgency=medium
+
+  * New upstream version 1.4.1
+
+ -- Georges Khaznadar <georgesk@debian.org>  Fri, 13 Mar 2020 17:58:57 +0100
+
+python-odf (1.4.0-3) unstable; urgency=medium
+
+  * removed the build-dependency on doxypy
+  * added a patch to use doxypypy, before this program becomes a debian package
+
+ -- Georges Khaznadar <georgesk@debian.org>  Sun, 01 Dec 2019 20:37:01 +0100
+
+python-odf (1.4.0-2) unstable; urgency=medium
+
+  * Team upload.
+  * Use debhelper-compat instead of debian/compat.
+  * Drop Python 2 support.
+  * Add python3-defusedxml to B-D.
+
+ -- Ondřej Nový <onovy@debian.org>  Mon, 26 Aug 2019 08:35:02 +0200
+
+python-odf (1.4.0-1) unstable; urgency=medium
+
+  [ Ondřej Nový ]
+  * d/control: Remove ancient XS-Python-Version field
+  * Convert git repository from git-dpm to gbp layout
+
+  [ Georges Khaznadar ]
+  * new upstream release
+  * updated Standards version to 4.2.1 and dh level to 11
+
+ -- Georges Khaznadar <georgesk@debian.org>  Tue, 05 Jun 2018 13:27:31 +0200
+
+python-odf (1.3.6-3) unstable; urgency=medium
+
+  [Ondřej Nový]
+  * d/control: Set Vcs-* to salsa.debian.org
+  * d/copyright: Use https protocol in Format field
+  [Georges Khaznadar]
+  * updated Standards version to 4.1.4
+
+ -- Georges Khaznadar <georgesk@debian.org>  Sun, 15 Apr 2018 11:17:49 +0200
+
+python-odf (1.3.6-2) unstable; urgency=medium
+
+  * changed the VCS browser link
+
+ -- Georges Khaznadar <georgesk@debian.org>  Sun, 14 Jan 2018 14:30:22 +0100
+
+python-odf (1.3.6-1) unstable; urgency=medium
+
+  * new upstream version
+  * removed the cleanup script
+  * allowed uglified JS coming from doxygen's run
+  * now ignoring manfiles (*.1) which are regenerated
+  * changed d/control's descriptions to make lintian happier
+  * referenced https URLs for the VCS
+  * upgraded standards-version and debhelper's level
+  * fixed a typo: continous -> continuous
+  * removed an unused lintian override
+
+ -- Georges Khaznadar <georgesk@debian.org>  Sat, 13 Jan 2018 19:00:46 +0100
+
+python-odf (1.3.5+dfsg-1.1) UNRELEASED; urgency=medium
+
+  * Non-maintainer upload.
+  * Remove myself from Uploaders
+
+ -- Thomas Bechtold <toabctl@debian.org>  Sun, 07 Jan 2018 10:22:25 +0100
+
+python-odf (1.3.5+dfsg-1) unstable; urgency=medium
+
+  * New upstream version 1.3.5
+  * Make source dfsg clean
+
+ -- Georges Khaznadar <georgesk@debian.org>  Thu, 17 Aug 2017 22:12:55 +0200
+
+python-odf (1.3.4+dfsg-1) unstable; urgency=medium
+
+  * new upstream version
+  * add build-depend on python3-setuptools
+
+ -- W. Martin Borgert <debacle@debian.org>  Sun, 22 Jan 2017 10:42:48 +0000
+
+python-odf (1.3.3+dfsg-1) unstable; urgency=medium
+
+  * new upstream version
+  * add examples to -doc package
+
+ -- W. Martin Borgert <debacle@debian.org>  Fri, 23 Dec 2016 22:58:06 +0000
+
+python-odf (1.3.2+dfsg2-1) unstable; urgency=medium
+
+  * repacked the source: removed the doc subdirectory since it is generated
+    by Doxygen
+
+ -- Georges Khaznadar <georgesk@debian.org>  Sun, 01 May 2016 15:11:46 +0200
+
+python-odf (1.3.2+dfsg1-3) unstable; urgency=medium
+
+  * upgraded Standards-Version to 3.9.8
+  * fixed dependencies for python3-odf. Closes: #822099
+  * defined XS-Python-Version and XS-Python3-Version
+  * simplified d/rules
+
+ -- Georges Khaznadar <georgesk@debian.org>  Sat, 30 Apr 2016 16:42:17 +0200
+
+python-odf (1.3.2+dfsg1-2) unstable; urgency=medium
+
+  * recompiled the package to change dependencies. Closes: #822099
+
+ -- Georges Khaznadar <georgesk@debian.org>  Sat, 23 Apr 2016 23:41:55 +0200
+
+python-odf (1.3.2+dfsg1-1) unstable; urgency=medium
+
+  * New upstream version
+
+ -- Georges Khaznadar <georgesk@debian.org>  Fri, 19 Feb 2016 20:22:35 +0100
+
+python-odf (1.3.1+dfsg-2) unstable; urgency=medium
+
+  * fixed an issue raised by math elements, for odt2xhtml
+
+ -- Georges Khaznadar <georgesk@debian.org>  Fri, 19 Feb 2016 12:40:21 +0100
+
+python-odf (1.3.1+dfsg-1) unstable; urgency=medium
+
+  * New upstream version, which allowed to remove all previous patches.
+  * Set HTML_TIMESTAMP = NO (Closes: #777635).
+  * Added patch which (Closes: #783789).
+  * Remove doc/ in source, because of uglified JS.
+  * Updated watch file.
+
+ -- W. Martin Borgert <debacle@debian.org>  Sat, 25 Jul 2015 13:36:45 +0000
+
+python-odf (1.2.0-6) unstable; urgency=medium
+
+  * fixed a lot of issues due to inconsistencies of the code initially
+    written for Python2, mainly confusions between byte strings
+    and unicode strings. The new code tries to use byte strings for
+    file-like streams and unicode strings for in-memory objects.
+  * added JavaDoc strings to document thoroughly functions and methods,
+     mainly in odf/opendocument.py
+  * added a config.dox file to allow one to build a documentation in HTML
+    and LaTeX, for library developpers and users.
+  * added many assert() clauses to ensure the types of parameters in
+    functions and methods
+  * modified the utilities to make them usable with both Python2 and Python3
+  * implemented a feature announced in csv2ods manfiles but not previously
+    active: -c / --encoding switch to take in account the encoding of
+    the CSV source file.
+  * added rules to build the developer's documentation and install it in
+    usr/share/python-odf/API-doc/html
+  * added a dependency python-odf-doc -> libjs-jquery necessary because
+    of HTML code output by Doxygen
+
+ -- Georges Khaznadar <georgesk@debian.org>  Tue, 28 Oct 2014 10:41:32 +0100
+
+python-odf (1.2.0-5) unstable; urgency=medium
+
+  * fixed a small mistake: the new Standards-Version is 3.9.6
+  * recalled that this upload Closes: #766389
+
+ -- Georges Khaznadar <georgesk@debian.org>  Sun, 26 Oct 2014 22:39:40 +0100
+
+python-odf (1.2.0-3) unstable; urgency=medium
+
+  * added myself to Uploaders
+  * modified the library to work with python3
+  * upgraded Standards-Version to 3.9.5, debhelper to 9
+  * added three new binary packages: python3-odf pythn-odf-tools
+    and python-odf-doc; the last one provides the documentation
+    for Odfpy's API as an opendocument
+  * modified the test routine to run tests with both python 2 and 3.
+  * fixed algorithms which might work with Python2 but were defeated by
+    Python3's unpredictability for order of iterables like dictionaries.
+  * modified the source of "binaries" to work with Python3 and checked
+    their features.
+
+ -- Georges Khaznadar <georgesk@debian.org>  Tue, 21 Oct 2014 12:04:55 +0200
+
+python-odf (1.2.0-2) unstable; urgency=low
+
+  * Build-dep on dh-python (Closes: #764984)
+  * New policy version, no changes
+
+ -- W. Martin Borgert <debacle@debian.org>  Sun, 12 Oct 2014 19:59:27 +0000
+
+python-odf (1.2.0-1) unstable; urgency=low
+
+  * New upstream version (Closes: #763870)
+  * Use improved short and long description by upstream
+  * New policy version, no changes
+  * Moved packaging to git
+
+ -- W. Martin Borgert <debacle@debian.org>  Fri, 03 Oct 2014 21:47:40 +0000
+
+python-odf (0.9.6-2) unstable; urgency=low
+
+  [Jakub Wilk <jwilk@debian.org>  Sun, 05 May 2013 16:03:01 +0200]
+  * Use canonical URIs for Vcs-* fields.
+  * New policy version, no changes. Upload to unstable.
+
+ -- W. Martin Borgert <debacle@debian.org>  Thu, 09 May 2013 12:57:04 +0000
+
+python-odf (0.9.6-1) experimental; urgency=low
+
+  * Initial release. (Closes: #484584)
+
+ -- Thomas Bechtold <thomasbechtold@jpberlin.de>  Tue, 11 Dec 2012 17:15:17 +0100

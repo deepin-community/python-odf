@@ -1,0 +1,13 @@
+Index: python-odf.comaint/odfmeta/odfmeta.docbook
+===================================================================
+--- python-odf.comaint.orig/odfmeta/odfmeta.docbook
++++ python-odf.comaint/odfmeta/odfmeta.docbook
+@@ -76,7 +76,7 @@ The version number can't be modified.
+ <term>-c</term>
+ <listitem>
+ <para>
+-Make field values continous by normalizing white space.
++Make field values continuous by normalizing white space.
+ Might be convenient when postprocessing with standard (line  oriented) text utilities.
+ </para>
+ </listitem>

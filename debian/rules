@@ -1,0 +1,47 @@
+#!/usr/bin/make -f
+
+#DH_VERBOSE=1
+
+export PYBUILD_NAME=odf
+PYTHON3=$(shell py3versions -vr)
+
+%:
+	dh $@ --with python3 --buildsystem=pybuild
+
+ifeq (,$(filter nocheck,$(DEB_BUILD_OPTIONS)))
+test-python%:
+	cd tests; \
+	PYTHONPATH=../`python$* -c "import sys; print(':'.join(sys.path))"`; \
+	for F in `ls test*.py` ; do \
+		PYTHONPATH=$$PYTHONPATH python$* $$F; \
+	done
+
+override_dh_auto_test: $(PYTHON3:%=test-python%)
+endif
+
+UTILITIES = csv2ods mailodf odf2xhtml odf2mht odf2xml odfimgimport \
+            odflint odfmeta odfoutline odfuserfield xml2odf
+
+override_dh_clean:
+	# clean directories used for utilities
+	for D in $(UTILITIES); do make -C $$D clean; done
+	# remove build space
+	rm -rf build
+	# remove generated symlinks
+	find . -name odf -type l | xargs rm -f
+	# remove documentation made by Doxygen
+	rm -rf doc
+	dh_clean
+
+override_dh_auto_build:
+	for D in $(UTILITIES); do make -C $$D; done
+	doxygen config.dox
+	dh_auto_build
+
+override_dh_auto_install:
+	dh_auto_install
+	# ensure that debian/python-odf-tools/usr/share exists
+	mkdir -p debian/python-odf-tools/usr/share
+	# moce scripts and their man pages to python-odf-tools
+	mv debian/python3-odf/usr/bin debian/python-odf-tools/usr
+	mv debian/python3-odf/usr/share/man debian/python-odf-tools/usr/share

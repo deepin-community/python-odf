@@ -1,0 +1,63 @@
+Source: python-odf
+Section: python
+Priority: optional
+Maintainer: Debian Python Modules Team <python-modules-team@lists.alioth.debian.org>
+Uploaders: W. Martin Borgert <debacle@debian.org>,
+ Georges Khaznadar <georgesk@debian.org>
+Standards-Version: 4.2.1
+Build-Depends: debhelper-compat (= 11),
+	python3-all,
+	xmlto,
+	python3-setuptools,
+	python3-defusedxml,
+	dh-python,
+	doxygen,
+	graphviz
+Homepage: https://github.com/eea/odfpy
+Vcs-Git: https://salsa.debian.org/python-team/modules/python-odf.git
+Vcs-Browser: https://salsa.debian.org/python-team/modules/python-odf
+
+Package: python-odf-tools
+Architecture: all
+Conflicts: python-odf (<< 1.2.0-3)
+Depends: ${misc:Depends}, ${python3:Depends}, python3, python3-odf
+Description: Python tools to manipulate OpenDocument files
+ Simple tool collection to manipulate ODF files, like converting CSV to
+ spreadsheet, e-mails to text files, text files to HTML, including images
+ given by URLs, filling user fields with data tables, and so on.
+
+Package: python3-odf
+Architecture: all
+Recommends: python-odf-doc, python-odf-tools
+Depends: ${misc:Depends}, ${python3:Depends}
+Description: Python3 API to manipulate OpenDocument files
+ Odfpy is a library to read and write OpenDocument v. 1.1 files.
+ The main focus has been to prevent the programmer from creating invalid
+ documents. It has checks that raise an exception if the programmer adds
+ an invalid element, adds an attribute unknown to the grammar, forgets to
+ add a required attribute or adds text to an element that doesn't allow it.
+ .
+ These checks and the API itself were generated from the RelaxNG
+ schema, and then hand-edited. Therefore the API is complete and can
+ handle all ODF constructions.
+ .
+ In addition to the API, there are a few scripts:
+ .
+  - csv2ods - Create OpenDocument spreadsheet from comma separated values
+  - mailodf - Email ODF file as HTML archive
+  - odf2xhtml - Convert ODF to (X)HTML
+  - odf2mht - Convert ODF to HTML archive
+  - odf2xml - Create OpenDocument XML file from OD? package
+  - odfimgimport - Import external images
+  - odflint - Check ODF file for problems
+  - odfmeta - List or change the metadata of an ODF file
+  - odfoutline - Show outline of OpenDocument
+  - odfuserfield - List or change the user-field declarations in an ODF file
+  - xml2odf - Create OD? package from OpenDocument in XML form
+
+Package: python-odf-doc
+Architecture: all
+Section: doc
+Depends: ${misc:Depends}, libjs-jquery
+Description: documentation and examples for python-odf and python3-odf
+ Odfpy is a library to read and write OpenDocument v. 1.1 files.

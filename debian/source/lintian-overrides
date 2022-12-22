@@ -1,0 +1,12 @@
+# The directory doc/ is erased, then rebuilt by doxygen, so the
+# uglified files jquery.js, all_*.js, functions_*.js and variables_*.js
+# are removed from the package during its compilation
+# as those files were generated upstream by doxygen too, their contents
+# cause no license infringement.
+
+python-odf source: source-is-missing doc/html/jquery.js line length is 12734 characters (>512)
+python-odf source: source-is-missing doc/html/search/all_0.js line length is 2046 characters (>512)
+python-odf source: source-is-missing doc/html/search/all_13.js line length is 708 characters (>512)
+python-odf source: source-is-missing doc/html/search/all_5.js line length is 556 characters (>512)
+python-odf source: source-is-missing doc/html/search/functions_0.js line length is 2046 characters (>512)
+python-odf source: source-is-missing doc/html/search/variables_5.js line length is 556 characters (>512)
